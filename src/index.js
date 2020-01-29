@@ -1,7 +1,9 @@
-// import {a} from './a.js';
-// import {b} from './b.js';
+// import url from './389696166.gif'
+// const oImg =new Image();
+// oImg.src=url;
+// document.body.appendChild(oImg)
 
-const {a}=require('./a')
-const {b}=require('./b')
 
-console.log(a,b)
+import style from './index.less'
+
+console.log(style);
