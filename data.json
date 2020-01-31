@@ -1,0 +1,11 @@
+{
+  "user":{
+    "name":"我是user的数据"
+  },
+  "home":{
+    "name":"我是home的数据"
+  },
+  "lala":{
+    "name":"我是lala的数据"
+  }
+}

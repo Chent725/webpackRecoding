@@ -2,23 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96aca007-d8c1-4683-ae43-86fc5a8fcf39" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/day 1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/day 1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/a.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/b.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/css/a.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/css/b.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/js/a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/js/b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/postcss.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/b.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bundle/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bundle/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,11 +40,16 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
     <property name="ts.external.directory.path" value="D:\Work\PhpStorm 2019.2.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\94827\Desktop\cross_demain_2" />
+      <recent name="C:\Users\94827\Desktop\cross_demain_2\src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\94827\Desktop\工作、demo\webpack\local_webpackTest\day2\src" />
     </key>
@@ -103,6 +96,7 @@
       <workItem from="1580452789488" duration="3165000" />
       <workItem from="1580462308993" duration="5034000" />
       <workItem from="1580468253087" duration="1715000" />
+      <workItem from="1580473711866" duration="759000" />
     </task>
     <servers />
   </component>

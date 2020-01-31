@@ -424,3 +424,57 @@ app.listen(6000,()=>{
 
 ```
 
+### webpack-dev-server 配置仿造数据和接口
+
+以便再开发过程中，模拟接口和数据，和后台同步进行，避免拉进度。
+
+`devServer.before`
+
+in webpack.config.js
+
+必须像后台一样传入app
+
+```js
+devServer:{
+        open:true, //配置好后自动打开
+        port:3001, //该服务的端口号
+        contentBase:'./bundle',//开启的服务能够访问bundle目录下的资源
+        proxy:{
+            '/api':{
+                target:'http://localhost:3001',//api开头的路径就转发,仿造接口，此处同源
+                pathRewrite:{'^/api':'/'},    //路径重写
+            },
+        },
+        before (app) { //必须像后台一样传入app
+            app.get('/api/user',(req,res)=>{
+                res.send(data.user)
+            })
+
+            app.get('/api/home',(req,res)=>{
+                res.send(data.home)
+            })
+
+            app.get('/api/lala',(req,res)=>{
+                res.send(data.lala)
+            })
+        }
+    },
+```
+
+in data.json
+
+```json
+{
+  "user":{
+    "name":"我是user的数据"
+  },
+  "home":{
+    "name":"我是home的数据"
+  },
+  "lala":{
+    "name":"我是lala的数据"
+  }
+}
+
+```
+
