@@ -2,15 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96aca007-d8c1-4683-ae43-86fc5a8fcf39" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/a.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/day 1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/day 1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/css/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bundle/a.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bundle/b.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bundle/css/a.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bundle/css/b.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bundle/js/a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bundle/js/b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/a.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/postcss.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/b.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/b.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,11 +42,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="ProjectId" id="1X47NFUcPim1dbHr6yydzcHghs6" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
+    <property name="ts.external.directory.path" value="D:\Work\PhpStorm 2019.2.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -57,6 +73,20 @@
       </list>
     </option>
   </component>
+  <component name="RunManager" selected="Node.js.server.js">
+    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="index.js" working-dir="$PROJECT_DIR$/src">
+      <method v="2" />
+    </configuration>
+    <configuration name="server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="server.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.server.js" />
+        <item itemvalue="Node.js.index.js" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -71,6 +101,8 @@
       <workItem from="1580301794690" duration="3620000" />
       <workItem from="1580441724954" duration="3833000" />
       <workItem from="1580452789488" duration="3165000" />
+      <workItem from="1580462308993" duration="5034000" />
+      <workItem from="1580468253087" duration="1715000" />
     </task>
     <servers />
   </component>
@@ -89,17 +121,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/webpack.config.js</url>
-          <line>19</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

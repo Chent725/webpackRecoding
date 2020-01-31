@@ -62,7 +62,7 @@ module.exports={
     //打包后的代码在开发环境中 打包后的代码不会被压缩
     mode:'development',
     //入口配置
-    entry:'./src/index.js',a.js口配置
+    entry:inde1x.inde1x.js配置
     output:{
         //输出文件名
         filename:'bundle.js',
@@ -298,8 +298,7 @@ new MiniCssExtractPlugin({
 ```js
   entry: {
         a:'./src/a.js',
-        b:'./src/b.js'
-    },
+        b:index.jindex.js  },
 ```
 
 配置多出口、多页面
@@ -360,5 +359,68 @@ new MiniCssExtractPlugin({
             chunks: ['b']
         })
     ],
+```
+
+### webpack-dev-server 解决开发环境的跨域问题
+
+安装
+
+```js
+npm i webpack-dev-server 
+```
+
+in webpack.config.js
+
+3001端口向6000端口发起axios请求
+
+```js
+ devServer:{
+        open:true, //配置好后自动打开
+        port:3001, //该服务的端口号
+        contentBase:'./bundle',//开启的服务能够访问bundle目录下的资源
+        proxy:{
+            '/api':{
+                target:'http://localhost:6000',//api开头的路径就转发
+                pathRewrite:{'^/api':'/'},    //路径重写
+            },
+        }
+    },
+```
+
+创造跨域问题
+
+```js
+import axios from 'axios'
+
+axios.get('/api/user')
+axios.get('/api/home')
+axios.get('/api/lala')
+```
+
+6000端口
+
+```js
+const express = require('express')
+
+const app = express()
+
+
+app.get('/user',(req,res)=>{
+
+    res.send({name:'我是user的数据'})
+})
+
+app.get('/home',(req,res)=>{
+    res.send({name:'我是home的数据'})
+})
+
+app.get('/lala',(req,res)=>{
+    res.send({name:'我是lala的数据'})
+})
+
+app.listen(6000,()=>{
+    console.log('6000端口运行了')
+})
+
 ```
 
