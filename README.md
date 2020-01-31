@@ -75,9 +75,9 @@ module.exports={
 
 ```
 
-### url-loader 图片打包
+### url-loader 处理图片
 
-   这个loader可以把图片解析成base64位格式的字符串
+把图片解析成base64位格式的字符串
 
 *       解析成base64格式字符串 可以减少网络请求（只针对小图片）
 
@@ -114,7 +114,7 @@ rules: [
         ]
 ```
 
-### css-loader    css打包
+### css-loader   处理css
 
 css-loader可以处理css文件  并解析css代码
 
@@ -136,9 +136,9 @@ npm i css-loader style-loader -D
 },
 ```
 
-### less-loader less打包
+### less-loader 处理less
 
- 这个loader可以处理less文件  并解析less代码
+处理less文件  并解析less代码
 
 ```js
 npm i less-loader -D
@@ -155,5 +155,141 @@ npm i less-loader -D
             loader: "less-loader"
         }]
 }
+```
+
+### postcss-loader 处理css兼容
+
+使用 [PostCSS](http://postcss.org/) 加载和处理兼容 CSS/less/sass文件
+
+该loader需和autoprefixer配合使用
+
+```js
+npm i -D postcss-loader autoprefixer
+```
+
+添加 `postcss.config.js`:
+
+```js
+module.exports = {
+  plugins: [
+    require('autoprefixer')
+  ]
+}
+```
+
+In [webpack](https://webpack.js.org/) 
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader", "postcss-loader"]
+      }
+    ]
+  }
+}
+```
+
+### MiniCssExtractPlugin 压缩css为独立文件
+
+该插件将CSS提取到单独的文件中。它为每个包含CSS的JS文件创建一个CSS文件
+
+首先，安装`mini-css-extract-plugin`：
+
+```bash
+npm install --save-dev mini-css-extract-plugin
+```
+
+**webpack.config.js**
+
+```js
+plugins: [
+        //必须配置打包后的文件名
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+        }),
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    //该插件将CSS提取到单独的文件中。它为每个包含CSS的JS文件创建一个CSS文件
+                    MiniCssExtractPlugin.loader,
+                    "css-loader",
+                    "postcss-loader"
+                ]
+            }
+        ]
+    }
+```
+
+### optimize-css-assets-webpack-plugin 压缩css
+
+```
+npm install --save-dev optimize-css-assets-webpack-plugin
+```
+
+```js
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+```
+
+**webpack.config.js**
+
+```js
+plugins: [
+        //必须配置打包后的文件名
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+        }),
+        new OptimizeCSSAssetsPlugin()
+    ],
+```
+
+### HtmlWebpackPlugin 自动创建html并且引入css/js外链
+
+安装
+
+```bash
+npm install --save-dev html-webpack-plugin
+```
+
+使用
+
+```js
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+  plugins: [
+        new HtmlWebpackPlugin({
+            filename: "index.html",
+            template: "src/template.html",
+            minify:{
+                //压缩空格
+                collapseWhitespace: true,
+                //删除注释
+                removeComments: true,
+                //删除冗余属性
+                removeRedundantAttributes: true,
+                //删除script的src属性
+                removeScriptTypeAttributes: true,
+                // 删除link的ref属性
+                removeStyleLinkTypeAttributes: true,
+                //使用短文档类型
+                useShortDoctype: true
+            }
+        })
+    ],
+```
+
+### filename
+
+不仅可以配置文件名也可以配置文件存储路径
+
+```js
+new MiniCssExtractPlugin({
+    //生成css目录下的index文件
+    filename: 'css/index.css',
+}),
 ```
 

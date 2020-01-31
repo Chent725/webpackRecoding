@@ -2,17 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96aca007-d8c1-4683-ae43-86fc5a8fcf39" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/389696166.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/postcss.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/bundle/bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bundle/bundle.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bundle/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/bundle/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/389696166.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -71,6 +69,7 @@
       <updated>1580293745277</updated>
       <workItem from="1580293746569" duration="491000" />
       <workItem from="1580301794690" duration="3620000" />
+      <workItem from="1580441724954" duration="3833000" />
     </task>
     <servers />
   </component>
@@ -82,7 +81,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
