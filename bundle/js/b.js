@@ -81,31 +81,31 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/b.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
+/***/ "./src/b.css":
+/*!*******************!*\
+  !*** ./src/b.css ***!
+  \*******************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/b.css?");
+
+/***/ }),
+
+/***/ "./src/b.js":
+/*!******************!*\
+  !*** ./src/b.js ***!
+  \******************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.less */ \"./src/index.less\");\n/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_less__WEBPACK_IMPORTED_MODULE_0__);\n// import url from './389696166.gif'\r\n// const oImg =new Image();\r\n// oImg.src=url;\r\n// document.body.appendChild(oImg)\r\n\r\n\r\n\r\n\r\nconsole.log(_index_less__WEBPACK_IMPORTED_MODULE_0___default.a);\r\n\n\n//# sourceURL=webpack:///./src/index.js?");
-
-/***/ }),
-
-/***/ "./src/index.less":
-/*!************************!*\
-  !*** ./src/index.less ***!
-  \************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/index.less?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _b_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./b.css */ \"./src/b.css\");\n/* harmony import */ var _b_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_b_css__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\n\n//# sourceURL=webpack:///./src/b.js?");
 
 /***/ })
 

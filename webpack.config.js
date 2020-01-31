@@ -5,24 +5,27 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     //打包后的代码在开发环境中 打包后的代码不会被压缩
     mode: 'development',
-    //入口配置
-    entry: './src/index.js',
-    //出口配置
+    //配置多个入口配置
+    entry: {
+        a:'./src/a.js',
+        b:'./src/b.js'
+    },
+    //配置多个出口配置
     output: {
         //输出文件名
-        filename: 'js/main.js',
+        filename: 'js/[name].js',
         //输出文件夹
         path: path.resolve(__dirname, 'bundle')
     },
     plugins: [
         //必须配置打包后的文件名
         new MiniCssExtractPlugin({
-            //生成css目录下的index文件
-            filename: 'css/index.css',
+            //生成多个css目录下的css文件
+            filename: 'css/[name].css',
         }),
         new OptimizeCSSAssetsPlugin(),
         new HtmlWebpackPlugin({
-            filename: "index.html",
+            filename: "a.html",
             template: "src/template.html",
             minify:{
                 //压缩空格
@@ -37,7 +40,29 @@ module.exports = {
                 removeStyleLinkTypeAttributes: true,
                 //使用短文档类型
                 useShortDoctype: true
-            }
+            },
+            chunks: ['a']
+        }),
+        //配置多个页面
+        new HtmlWebpackPlugin({
+            filename: "b.html",
+            template: "src/template.html",
+            minify:{
+                //压缩空格
+                collapseWhitespace: true,
+                //删除注释
+                removeComments: true,
+                //删除冗余属性
+                removeRedundantAttributes: true,
+                //删除script的src属性
+                removeScriptTypeAttributes: true,
+                // 删除link的ref属性
+                removeStyleLinkTypeAttributes: true,
+                //使用短文档类型
+                useShortDoctype: true
+            },
+            //块，引入对应的链接
+            chunks: ['b']
         })
     ],
     module: {

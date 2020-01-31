@@ -36,8 +36,7 @@ package.json
   "name": "day1",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
-  "scripts": {
+  "main": a.js,a.jspts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     //自定义配置命令，npm run build ===npx webpack
     "build": "webpack"
@@ -63,8 +62,7 @@ module.exports={
     //打包后的代码在开发环境中 打包后的代码不会被压缩
     mode:'development',
     //入口配置
-    entry:'./src/index.js',
-    //出口配置
+    entry:'./src/index.js',a.js口配置
     output:{
         //输出文件名
         filename:'bundle.js',
@@ -291,5 +289,76 @@ new MiniCssExtractPlugin({
     //生成css目录下的index文件
     filename: 'css/index.css',
 }),
+```
+
+### 多页打包
+
+配置多入口
+
+```js
+  entry: {
+        a:'./src/a.js',
+        b:'./src/b.js'
+    },
+```
+
+配置多出口、多页面
+
+```js
+    //配置多个出口配置
+    output: {
+        //输出文件名
+        filename: 'js/[name].js',
+        //输出文件夹
+        path: path.resolve(__dirname, 'bundle')
+    },
+    plugins: [
+        //必须配置打包后的文件名
+        new MiniCssExtractPlugin({
+            //生成多个css目录下的css文件
+            filename: 'css/[name].css',
+        }),
+        new OptimizeCSSAssetsPlugin(),
+        new HtmlWebpackPlugin({
+            filename: "a.html",
+            template: "src/template.html",
+            minify:{
+                //压缩空格
+                collapseWhitespace: true,
+                //删除注释
+                removeComments: true,
+                //删除冗余属性
+                removeRedundantAttributes: true,
+                //删除script的src属性
+                removeScriptTypeAttributes: true,
+                // 删除link的ref属性
+                removeStyleLinkTypeAttributes: true,
+                //使用短文档类型
+                useShortDoctype: true
+            },
+            chunks: ['a']
+        }),
+        //配置多个页面
+        new HtmlWebpackPlugin({
+            filename: "b.html",
+            template: "src/template.html",
+            minify:{
+                //压缩空格
+                collapseWhitespace: true,
+                //删除注释
+                removeComments: true,
+                //删除冗余属性
+                removeRedundantAttributes: true,
+                //删除script的src属性
+                removeScriptTypeAttributes: true,
+                // 删除link的ref属性
+                removeStyleLinkTypeAttributes: true,
+                //使用短文档类型
+                useShortDoctype: true
+            },
+            //块，引入对应的链接
+            chunks: ['b']
+        })
+    ],
 ```
 
