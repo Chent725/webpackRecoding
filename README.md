@@ -478,3 +478,135 @@ in data.json
 
 ```
 
+### webpack搭建vue-cli
+
+在入口文件中
+
+```js
+//依赖vue
+import Vue from 'vue'
+import App from './App.vue'
+
+const vm = new Vue({
+    //选择runtime 构建方式
+    render:h=>h(App)
+}).$mount('#app')
+
+```
+
+因为需要依赖vue
+
+安装
+
+```js
+npm i vue -D
+```
+
+在模板文件中
+
+```js
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!--插入app-->
+    <div id="app"></div>
+</body>
+</html>
+
+```
+
+创建vue文件
+
+```vue
+<template>
+    <div>
+        {{msg}}
+        <button @click="handleClick">按钮</button>
+    </div>
+</template>
+
+<script>
+    export default {
+        methods:{
+            handleClick(){
+                console.log(this.msg)
+            }
+        },
+        data(){
+            return {
+                msg:'我是根组件的数据'
+            }
+        }
+    }
+</script>
+
+<style >
+
+</style>
+
+```
+
+in webpack.confing.js
+
+需要使用vue 文件，则需要引入对应的loader
+
+安装
+
+```
+npm i vue-loader  vue-template-compiler -D
+```
+
+```js
+
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
+//解析和处理vue的组件
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+module.exports = {
+    mode:'development',//打包后的代码在开发环境中 打包后的代码不会被压缩
+    entry:'./src/index.js',
+    module: {
+        rules: [
+            {
+                test:/\.vue$/,
+                use:['vue-loader']
+            }
+        ]
+    },
+    output:{        //打包后文件的输入地址
+        filename:'js/main.js',
+        path:path.join(__dirname,'bundle'),//path必须是个绝对路径
+    },
+    devServer:{
+        open:true, //配置好后自动打开
+        port:3001, //该服务的端口号
+    },
+    plugins:[
+        new VueLoaderPlugin(),
+        new HtmlWebpackPlugin({
+            filename:'index.html',
+            template:'./src/template.html'
+        })
+    ],
+    // resolve:{
+    //     alias:{     //该文件有 template compiler
+    //   如果根组件有template选项  则必须配置  alias
+    //   如果根组件没有template选项  则不需要配置  alias
+    //         'vue$':'vue/dist/vue.esm.js'
+    //     }
+    // }
+}
+/*
+*   vue-loader   解析vue文件
+*   vue-template-compiler 解析vue文件的结构
+* */
+
+```
+
