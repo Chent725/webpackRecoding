@@ -478,3 +478,66 @@ in data.json
 
 ```
 
+### babel将高级语法转义成低级语法
+
+安装
+
+```
+npm install --save-dev babel-loader @babel/core
+npm install @babel/preset-env --save-dev
+```
+
+in webpack
+
+```js
+module: {
+  rules: [
+    { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+  ]
+}
+```
+
+Create `.babelrc` configuration file
+
+```js
+{
+  "presets": ["@babel/preset-env"]
+}
+```
+
+在入口文件
+
+```js
+//保证所有的js代码都可以转化为兼容版本的
+import "@babel/polyfill";
+
+const a=564165
+const arr=[1,2,3,8]
+arr.map(item=>{
+    console.log(item);
+})
+
+```
+
+如果需要按需配置列入ie环境需要转义的代码就比较多，chrome则较少
+
+in `.babelrc`
+
+```
+{
+  "presets": [
+    ["@babel/preset-env",
+      {
+        "targets": {
+          "chrome": "79"   
+          //目标环境
+        },
+        "useBuiltIns":"usage"
+        //是否启用按需引入
+      }
+    ]
+  ]
+}
+
+```
+
