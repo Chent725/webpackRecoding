@@ -200,7 +200,7 @@ module.exports = {
 npm install --save-dev mini-css-extract-plugin
 ```
 
-**webpack.config.js**
+**webpack.base.js**
 
 ```js
 plugins: [
@@ -234,7 +234,7 @@ npm install --save-dev optimize-css-assets-webpack-plugin
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 ```
 
-**webpack.config.js**
+**webpack.base.js**
 
 ```js
 plugins: [
@@ -369,7 +369,7 @@ new MiniCssExtractPlugin({
 npm i webpack-dev-server 
 ```
 
-in webpack.config.js
+in webpack.base.js
 
 3001端口向6000端口发起axios请求
 
@@ -430,7 +430,7 @@ app.listen(6000,()=>{
 
 `devServer.before`
 
-in webpack.config.js
+in webpack.base.js
 
 必须像后台一样传入app
 
@@ -523,7 +523,7 @@ arr.map(item=>{
 
 in `.babelrc`
 
-```
+```js
 {
   "presets": [
     ["@babel/preset-env",
@@ -538,6 +538,116 @@ in `.babelrc`
     ]
   ]
 }
+
+```
+
+### DefinePlugin 自定义全局变量
+
+in webpack.config.js
+
+```js
+//自定义全局变量，需要引入webpack
+const webpack = require('webpack')
+ plugins:[
+        new webpack.DefinePlugin({
+            // 在此构造函数中需要注意字符串需要经过转义，不能直接写
+            DEV:JSON.stringify('development'),
+            WANGCHUN:JSON.stringify({name:'heaven'})
+        })
+    ]
+```
+
+### clean-webpack-plugin  每次打包清空原出口文件
+
+```
+npm i clean-webpack-plugin 
+```
+
+in webpack.config.js
+
+```js
+//每次打包清空原出口文件
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+plugins:[
+        new CleanWebpackPlugin(),
+    ]
+```
+
+### webpack-merge 分环境配置webpack并融合配置
+
+```
+npm i webpack-merge
+```
+
+在基础配置
+
+```js
+const path=require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+//自定义全局变量，需要引入webpack
+const webpack = require('webpack')
+//每次打包清空原出口文件
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+module.exports = {
+    mode:'development',//打包后的代码在开发环境中 打包后的代码不会被压缩
+    entry:'./src/index.js',
+    output:{        //打包后文件的输入地址
+        filename:'js/main.js',
+        path:path.join(__dirname,'bundle'),//path必须是个绝对路径
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader"
+            }
+        ]
+    },
+    plugins:[
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            filename:'index.html',
+            template:'./src/template.html'
+        }),
+        //自定义全局变量
+        new webpack.DefinePlugin({
+            // 在此构造函数中需要注意字符串需要经过转义，不能直接写
+            DEV:JSON.stringify('development'),
+            WANGCHUN:JSON.stringify({name:'heaven'})
+        })
+    ]
+}
+
+```
+
+在生产环境
+
+```js
+const merge=require('webpack-merge')
+const base=require('./webpack.base')
+//merge（配置a，配置b）
+module.exports = merge(base,{
+    mode:'production',//打包后的代码在开发环境中 打包后的代码不会被压缩
+})
+
+```
+
+在开发环境
+
+```js
+//合并多个配置文件
+const merge=require('webpack-merge')
+const base=require('./webpack.base')
+
+//merge（配置a，配置b）
+module.exports = merge(base,{
+    mode:'development',//打包后的代码在开发环境中 打包后的代码不会被压缩
+    devServer:{
+        open:true, //配置好后自动打开
+        port:3001, //该服务的端口号
+    },
+});
 
 ```
 

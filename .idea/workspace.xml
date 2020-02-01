@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96aca007-d8c1-4683-ae43-86fc5a8fcf39" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/day 1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/day 1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bundle/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bundle/js/main.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.base.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,12 +48,13 @@
     <property name="ts.external.directory.path" value="D:\Work\PhpStorm 2019.2.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\94827\Desktop\cross_demain_2" />
-      <recent name="C:\Users\94827\Desktop\cross_demain_2\src" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\94827\Desktop\工作、demo\webpack\local_webpackTest\day2\src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\94827\Desktop\webpackRecoding" />
+      <recent name="C:\Users\94827\Desktop\cross_demain_2" />
+      <recent name="C:\Users\94827\Desktop\cross_demain_2\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -98,6 +101,7 @@
       <workItem from="1580468253087" duration="1715000" />
       <workItem from="1580473711866" duration="759000" />
       <workItem from="1580545607910" duration="2128000" />
+      <workItem from="1580548301038" duration="1609000" />
     </task>
     <servers />
   </component>

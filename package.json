@@ -5,8 +5,8 @@
   "main": "src/a.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "dev": "webpack-dev-server"
+    "build": "webpack --config webpack.pro.js",
+    "dev": "webpack-dev-server --config webpack.dev.js"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,7 @@
     "autoprefixer": "^9.7.4",
     "axios": "^0.19.2",
     "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.4.2",
     "express": "^4.17.1",
     "file-loader": "^5.0.2",
@@ -32,7 +33,8 @@
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-dev-middleware": "^3.7.2",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-dev-server": "^3.10.1",
+    "webpack-merge": "^4.2.2"
   },
   "dependencies": {
     "@babel/polyfill": "^7.8.3"

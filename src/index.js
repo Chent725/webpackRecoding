@@ -6,3 +6,4 @@ const arr=[1,2,3,8]
 arr.map(item=>{
     console.log(item);
 })
+alert(DEV?DEV:WANGCHUN)
