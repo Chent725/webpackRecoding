@@ -9,7 +9,7 @@ module.exports = {
     entry:'./src/index.js',
     output:{        //打包后文件的输入地址
         filename:'js/main.js',
-        path:path.join(__dirname,'bundle'),//path必须是个绝对路径
+        path:path.join(__dirname,'../dist'),//path必须是个绝对路径
     },
     module: {
         rules: [
@@ -32,5 +32,8 @@ module.exports = {
             DEV:JSON.stringify('development'),
             WANGCHUN:JSON.stringify({name:'heaven'})
         })
-    ]
+    ],
+    optimization: {
+        splitChunks: {chunks: "all"}
+    }
 }

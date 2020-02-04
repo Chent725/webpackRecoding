@@ -1,3 +1,5 @@
+
+
 # webpack
 
 ## 1、概念
@@ -8,7 +10,7 @@
 
 ### 初始化项目
 
-```js
+```
 npm init -y
 ```
 
@@ -22,7 +24,7 @@ npx webpack -v
 
 ### 打包
 
-```js
+```
 npx webpack <打包文件>
 默认打包在dust目录下main.js且是压缩版本的
 ```
@@ -31,7 +33,7 @@ npx webpack <打包文件>
 
 package.json
 
-```js
+```
 {
   "name": "day1",
   "version": "1.0.0",
@@ -49,13 +51,11 @@ package.json
     "webpack-cli": "^3.3.10"
   }
 }
-
 ```
 
 在文件夹中创建webpack.config.js
 
-```js
-
+```
 const path=require('path');
 
 module.exports={
@@ -70,20 +70,21 @@ module.exports={
         path:path.resolve(__dirname,'bundle')
     }
 };
-
 ```
 
 ### url-loader 处理图片
 
 把图片解析成base64位格式的字符串
 
-*       解析成base64格式字符串 可以减少网络请求（只针对小图片）
+- ```
+    解析成base64格式字符串 可以减少网络请求（只针对小图片）
+  ```
 
 需要配置loader
 
 首先安装图片处理
 
-```js
+```
 npm i url-loader -D
 ```
 
@@ -91,11 +92,8 @@ npm i url-loader -D
 
 如果需要处理的图片名字和打包前名字一致，需要添加空位符，使用空位符需要先安装
 
-```js
-npm i file-loader -D
 ```
-
-```js
+npm i file-loader -D
 rules: [
             {
                 test: /\.(gif|png|jpg)$/,//匹配到(文件类型)结尾
@@ -112,19 +110,19 @@ rules: [
         ]
 ```
 
-### css-loader   处理css
+### css-loader 处理css
 
-css-loader可以处理css文件  并解析css代码
+css-loader可以处理css文件 并解析css代码
 
 首先安装css处理和读取处理
 
-```js
+```
 npm i css-loader style-loader -D
 ```
 
 注意执行顺序，webpack解析顺序是从下到上或者从右到左所以打包要写在展示之前
 
-```js
+```
 {
     test:/\.css$/,
         use:[
@@ -136,13 +134,10 @@ npm i css-loader style-loader -D
 
 ### less-loader 处理less
 
-处理less文件  并解析less代码
+处理less文件 并解析less代码
 
-```js
-npm i less-loader -D
 ```
-
-```js
+npm i less-loader -D
 {
     test: /\.less$/,
         use: [{
@@ -161,13 +156,13 @@ npm i less-loader -D
 
 该loader需和autoprefixer配合使用
 
-```js
+```
 npm i -D postcss-loader autoprefixer
 ```
 
 添加 `postcss.config.js`:
 
-```js
+```
 module.exports = {
   plugins: [
     require('autoprefixer')
@@ -175,9 +170,9 @@ module.exports = {
 }
 ```
 
-In [webpack](https://webpack.js.org/) 
+In [webpack](https://webpack.js.org/)
 
-```js
+```
 module.exports = {
   module: {
     rules: [
@@ -196,13 +191,13 @@ module.exports = {
 
 首先，安装`mini-css-extract-plugin`：
 
-```bash
+```
 npm install --save-dev mini-css-extract-plugin
 ```
 
-**webpack.base.js**
+**webpack.config.js**
 
-```js
+```
 plugins: [
         //必须配置打包后的文件名
         new MiniCssExtractPlugin({
@@ -228,15 +223,12 @@ plugins: [
 
 ```
 npm install --save-dev optimize-css-assets-webpack-plugin
-```
-
-```js
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 ```
 
-**webpack.base.js**
+**webpack.config.js**
 
-```js
+```
 plugins: [
         //必须配置打包后的文件名
         new MiniCssExtractPlugin({
@@ -250,13 +242,13 @@ plugins: [
 
 安装
 
-```bash
+```
 npm install --save-dev html-webpack-plugin
 ```
 
 使用
 
-```js
+```
 const HtmlWebpackPlugin = require('html-webpack-plugin');
   plugins: [
         new HtmlWebpackPlugin({
@@ -284,7 +276,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 不仅可以配置文件名也可以配置文件存储路径
 
-```js
+```
 new MiniCssExtractPlugin({
     //生成css目录下的index文件
     filename: 'css/index.css',
@@ -295,7 +287,7 @@ new MiniCssExtractPlugin({
 
 配置多入口
 
-```js
+```
   entry: {
         a:'./src/a.js',
         b:index.jindex.js  },
@@ -303,7 +295,7 @@ new MiniCssExtractPlugin({
 
 配置多出口、多页面
 
-```js
+```
     //配置多个出口配置
     output: {
         //输出文件名
@@ -365,15 +357,15 @@ new MiniCssExtractPlugin({
 
 安装
 
-```js
+```
 npm i webpack-dev-server 
 ```
 
-in webpack.base.js
+in webpack.config.js
 
 3001端口向6000端口发起axios请求
 
-```js
+```
  devServer:{
         open:true, //配置好后自动打开
         port:3001, //该服务的端口号
@@ -389,7 +381,7 @@ in webpack.base.js
 
 创造跨域问题
 
-```js
+```
 import axios from 'axios'
 
 axios.get('/api/user')
@@ -399,7 +391,7 @@ axios.get('/api/lala')
 
 6000端口
 
-```js
+```
 const express = require('express')
 
 const app = express()
@@ -421,20 +413,21 @@ app.get('/lala',(req,res)=>{
 app.listen(6000,()=>{
     console.log('6000端口运行了')
 })
-
 ```
 
 ### webpack-dev-server 配置仿造数据和接口
 
 以便再开发过程中，模拟接口和数据，和后台同步进行，避免拉进度。
 
-`devServer.before`
+```
+devServer.before
+```
 
-in webpack.base.js
+in webpack.config.js
 
 必须像后台一样传入app
 
-```js
+```
 devServer:{
         open:true, //配置好后自动打开
         port:3001, //该服务的端口号
@@ -463,7 +456,7 @@ devServer:{
 
 in data.json
 
-```json
+```
 {
   "user":{
     "name":"我是user的数据"
@@ -475,7 +468,6 @@ in data.json
     "name":"我是lala的数据"
   }
 }
-
 ```
 
 ### babel将高级语法转义成低级语法
@@ -489,7 +481,7 @@ npm install @babel/preset-env --save-dev
 
 in webpack
 
-```js
+```
 module: {
   rules: [
     { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
@@ -499,7 +491,7 @@ module: {
 
 Create `.babelrc` configuration file
 
-```js
+```
 {
   "presets": ["@babel/preset-env"]
 }
@@ -507,7 +499,7 @@ Create `.babelrc` configuration file
 
 在入口文件
 
-```js
+```
 //保证所有的js代码都可以转化为兼容版本的
 import "@babel/polyfill";
 
@@ -516,7 +508,6 @@ const arr=[1,2,3,8]
 arr.map(item=>{
     console.log(item);
 })
-
 ```
 
 如果需要按需配置列入ie环境需要转义的代码就比较多，chrome则较少
@@ -538,116 +529,20 @@ in `.babelrc`
     ]
   ]
 }
-
 ```
 
-### DefinePlugin 自定义全局变量
+### splitChunks 代码分割
 
-in webpack.config.js
+将组件以异步加载得形式分割，可以应用在首屏优化
+
+in webpack.base.js
 
 ```js
-//自定义全局变量，需要引入webpack
-const webpack = require('webpack')
- plugins:[
-        new webpack.DefinePlugin({
-            // 在此构造函数中需要注意字符串需要经过转义，不能直接写
-            DEV:JSON.stringify('development'),
-            WANGCHUN:JSON.stringify({name:'heaven'})
-        })
-    ]
-```
-
-### clean-webpack-plugin  每次打包清空原出口文件
-
-```
-npm i clean-webpack-plugin 
-```
-
-in webpack.config.js
-
-```js
-//每次打包清空原出口文件
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-plugins:[
-        new CleanWebpackPlugin(),
-    ]
-```
-
-### webpack-merge 分环境配置webpack并融合配置
-
-```
-npm i webpack-merge
-```
-
-在基础配置
-
-```js
-const path=require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-//自定义全局变量，需要引入webpack
-const webpack = require('webpack')
-//每次打包清空原出口文件
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
-    mode:'development',//打包后的代码在开发环境中 打包后的代码不会被压缩
-    entry:'./src/index.js',
-    output:{        //打包后文件的输入地址
-        filename:'js/main.js',
-        path:path.join(__dirname,'bundle'),//path必须是个绝对路径
-    },
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: "babel-loader"
-            }
-        ]
-    },
-    plugins:[
-        new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({
-            filename:'index.html',
-            template:'./src/template.html'
-        }),
-        //自定义全局变量
-        new webpack.DefinePlugin({
-            // 在此构造函数中需要注意字符串需要经过转义，不能直接写
-            DEV:JSON.stringify('development'),
-            WANGCHUN:JSON.stringify({name:'heaven'})
-        })
-    ]
+    optimization: {
+        splitChunks: {chunks: "all"}
+    }
 }
-
-```
-
-在生产环境
-
-```js
-const merge=require('webpack-merge')
-const base=require('./webpack.base')
-//merge（配置a，配置b）
-module.exports = merge(base,{
-    mode:'production',//打包后的代码在开发环境中 打包后的代码不会被压缩
-})
-
-```
-
-在开发环境
-
-```js
-//合并多个配置文件
-const merge=require('webpack-merge')
-const base=require('./webpack.base')
-
-//merge（配置a，配置b）
-module.exports = merge(base,{
-    mode:'development',//打包后的代码在开发环境中 打包后的代码不会被压缩
-    devServer:{
-        open:true, //配置好后自动打开
-        port:3001, //该服务的端口号
-    },
-});
 
 ```
 
